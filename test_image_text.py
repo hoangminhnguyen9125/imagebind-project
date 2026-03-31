@@ -5,7 +5,7 @@ from PIL import Image
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model, preprocess = clip.load("ViT-B/32", device=device)
 
-image = preprocess(Image.open("images/dog.jpg")).unsqueeze(0).to(device)
+image = preprocess(Image.open("dog.jpg")).unsqueeze(0).to(device)
 
 texts = ["a dog", "a cat", "a car"]
 text_tokens = clip.tokenize(texts).to(device)
